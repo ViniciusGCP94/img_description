@@ -1,5 +1,5 @@
 import React from 'react'
-import { Upload } from 'lucide-react'
+import { Upload, ImagePreview } from 'lucide-react'
 
 const UploadImage = ({ onImageUpload, imagePreview, onAnalyze, onReset, isAnalyzing, fileInputRef }) => {
   return (
