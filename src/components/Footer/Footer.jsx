@@ -34,6 +34,16 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <div className="bg-blue-600 text-white border-1 rounded-xl shadow-sm p-6"> 
+                <span className='flex items-center justify-center gap-2'> Feito por
+                    <a 
+                    href="https://vinniedev.com.br/" target='_blank'
+                    className="p-2 hover:bg-black rounded font-bold hover:underline hover:decoration-solid hover:transition-colors hover:duration-500"
+                    >
+                        Vinicius Pereira
+                    </a>
+                </span>
+            </div>
         </div>
     )
 }
