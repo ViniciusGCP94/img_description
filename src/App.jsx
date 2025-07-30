@@ -3,6 +3,7 @@ import Header from './components/Header/Header'
 import UploadImage from './components/UploadImage/UploadImage'
 import useImageUpload from './hooks/useImageUpload';
 import DescriptionResult from './components/DescriptionResult/DescriptionResult'
+import Footer from './components/Footer/Footer';
 
 function App() {
     const {
@@ -37,6 +38,7 @@ function App() {
           onDrop={handleDrop}
         />
         <DescriptionResult description={description} />
+        <Footer />
       </>
     )
 }
