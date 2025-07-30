@@ -1,12 +1,78 @@
-# React + Vite
+# 🖼️ Image Description AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação Web que permite ao usuário enviar uma imagem e receber uma descrição automática gerada por Inteligência Artificial.
 
-Currently, two official plugins are available:
+🔗 **Acesse o projeto online:**  
+https://image-description-one.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📤 Upload de imagem local
+- 🧠 Análise de imagem com IA
+- 💬 Geração de descrição automática
+- 💡 Interface limpa e intuitiva
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML
+- CSS
+- JavaScript (Vanilla)
+- API Gemini Vision (Google AI)
+- Vercel (Deploy)
+
+---
+
+## 🖼️ Preview
+
+![Screenshot image description](./image-description.png)  
+
+---
+
+## ⚙️ Como Rodar Localmente
+
+```bash
+git clone https://github.com/ViniciusGCP94/image-description.git
+cd image-description
+# Abra o arquivo index.html no navegador
+
+⚠️ Observação: Para que a IA funcione localmente, você precisará de uma API Key da Gemini Vision, e configurar corretamente a requisição fetch.
+```
+
+---
+
+## 📚 Sobre o Projeto
+Este projeto demonstra como integrar aplicações front-end com APIs de inteligência artificial para análise e descrição de imagens. Um ótimo exemplo prático do uso de visão computacional na web.
+
+---
+
+## 🔐 Como obter uma API Key da Gemini
+1. Crie uma conta no Google AI Studio.
+
+2. Ative o modelo Gemini Vision.
+
+3. Gere uma chave de API.
+
+4. Insira a chave no cabeçalho da requisição fetch no seu JavaScript.
+
+---
+
+## 🙋‍♂️ Desenvolvedor
+[Vinícius Pereira (Vinnie)](https://github.com/ViniciusGCP94)
+
+Desenvolvedor Front-End em transição de carreira.
+
+---
+
+## 🤝 Contribuições
+Contribuições são bem-vindas!
+Abra uma issue ou envie um pull request.
+
+---
+
+## 📄 Licença
+Este projeto está sob a licença MIT.
+Veja o arquivo [LICENSE](./eslint.config.js) para mais informações.
