@@ -8,6 +8,14 @@ const useImageUpload = () => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
+
+  const getImageMimeType = (imagePreview) => {
+    if (imagePreview.startsWith('data:image/png')) return 'image/png';
+    if (imagePreview.startsWith('data:image/jpeg')) return 'image/jpeg';
+    if (imagePreview.startsWith('data:image/webp')) return 'image/webp';
+    return 'image/jpeg'; 
+  };
+
   // Handler para upload via input file
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -60,25 +68,22 @@ const useImageUpload = () => {
     setError('');
     
     try {
-
-      const mimeMatch = imagePreview.match(/^data:(image\/\w+);base64,/);
-      const mimeType = mimeMatch ? mimeMatch[1] : 'image/jpeg';
       // Converter imagem para base64 
       const base64Image = imagePreview.split(',')[1];      
 
-      const API_KEY = process.env.REACT_APP_GEMINI_API_KEY || 'AlZaSyCDBIPEJ637Dru1e4KyMgMnyXH1etozDE0';
-      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;      
-      
+      const API_KEY ='AIzaSyCDBIPEJ637Dru1e4KyMgMnyXH1etozDE0';
+      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;      
+    
       const requestBody = {
         contents: [{
           parts: [
             {
-              text: "Analise esta imagem e forneça uma descrição detalhada e acessível em português. Descreva o que você vê de forma clara e objetiva, incluindo pessoas, objetos, cenário, cores e atmosfera. A descrição será usada como texto alternativo para acessibilidade."
+              text: "Analise esta imagem e forneça uma descrição detalhada e acessível em português. Descreva o que você vê de forma clara e objetiva, incluindo pessoas, objetos, cenário, cores e atmosfera. A descrição será usada como texto alternativo para acessibilidade em apps ou websites."
             },
             {
               inline_data: {
-                mime_type: "image/jpeg", // ou "image/png" dependendo do tipo
-                data: base64Image
+              mime_type: getImageMimeType(imagePreview),
+              data: base64Image
               }
             }
           ]
@@ -94,12 +99,13 @@ const useImageUpload = () => {
       });
       
       if (!response.ok) {
-        throw new Error(`Erro na API: ${response.status}`);
+        const errorData = await response.json(); 
+        console.error('Erro detalhado da API:', errorData);
+        throw new Error(`Erro na API: ${response.status} - ${errorData.error?.message || JSON.stringify(errorData)}`);
       }
 
       const data = await response.json();
       
-      // Extrair a descrição da resposta do Gemini
       const generatedDescription = data.candidates?.[0]?.content?.parts?.[0]?.text;
       
       if (!generatedDescription) {
@@ -116,7 +122,6 @@ const useImageUpload = () => {
     }
   };
 
-  // Função para resetar tudo
   const resetImage = () => {
     setImagePreview(null);
     setDescription('');
