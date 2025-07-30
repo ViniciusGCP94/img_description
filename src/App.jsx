@@ -2,11 +2,13 @@ import React from 'react'
 import Header from './components/Header/Header'
 import UploadImage from './components/UploadImage/UploadImage'
 import useImageUpload from './hooks/useImageUpload';
+import DescriptionResult from './components/DescriptionResult/DescriptionResult'
 
 function App() {
     const {
       imagePreview,
       isAnalyzing,
+      description,
       fileInputRef,
       handleImageUpload,
       analyzeImage,
@@ -34,6 +36,7 @@ function App() {
           onDragOver={handleDragOver}
           onDrop={handleDrop}
         />
+        <DescriptionResult description={description} />
       </>
     )
 }

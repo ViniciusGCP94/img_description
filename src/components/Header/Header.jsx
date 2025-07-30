@@ -1,5 +1,4 @@
 import React from 'react'
-/*import eye from '../../assets/images/icons8-eye-48.png'*/
 import {Eye} from 'lucide-react'
 
 const Header = () => {

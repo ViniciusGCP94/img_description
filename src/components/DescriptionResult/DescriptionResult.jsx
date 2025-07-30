@@ -1,4 +1,4 @@
-import useState from 'react';
+import {useState} from 'react';
 import { Eye, Copy, Check } from 'lucide-react';
 
 const DescriptionResult = ({ description }) => {

@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 
 const useImageUpload = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [description, setDescription] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -9,86 +8,109 @@ const useImageUpload = () => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
-  // Função auxiliar para processar arquivo (tanto upload quanto drop)
-  const processImageFile = (file) => {
-    if (file && file.type.startsWith('image/')) {
-      setSelectedImage(file);
-      setError('');
-      
-      // Criar preview da imagem
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImagePreview(e.target.result);
-      };
-      reader.readAsDataURL(file);
-      
-      // Limpar descrição anterior
-      setDescription('');
-      return true;
-    } else {
-      setError('Por favor, selecione apenas arquivos de imagem.');
-      setSelectedImage(null);
-      setImagePreview(null);
-      return false;
-    }
-  };
-
   // Handler para upload via input file
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    processImageFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target.result);
+        setDescription(''); 
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   // === DRAG & DROP HANDLERS ===
   const handleDragEnter = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     setIsDragOver(true);
   };
 
   const handleDragLeave = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     setIsDragOver(false);
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    e.stopPropagation();
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     setIsDragOver(false);
 
     const files = e.dataTransfer.files;
     if (files.length > 0) {
       const file = files[0];
-      if (!processImageFile(file)) {
-        setError('Por favor, solte apenas arquivos de imagem.');
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setImagePreview(e.target.result);
+          setDescription(''); 
+        };
+        reader.readAsDataURL(file);
       }
     }
   };
 
   // Função para analisar imagem (simular IA)
   const analyzeImage = async () => {
-    if (!selectedImage) return;
-    
     setIsAnalyzing(true);
     setError('');
     
     try {
-      // Simular análise de IA
-      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const mimeMatch = imagePreview.match(/^data:(image\/\w+);base64,/);
+      const mimeType = mimeMatch ? mimeMatch[1] : 'image/jpeg';
+      // Converter imagem para base64 
+      const base64Image = imagePreview.split(',')[1];      
+
+      const API_KEY = process.env.REACT_APP_GEMINI_API_KEY || 'AlZaSyCDBIPEJ637Dru1e4KyMgMnyXH1etozDE0';
+      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;      
       
-      // Exemplo de descrição gerada
-      const sampleDescription = "Uma pessoa usando óculos de sol está sentada em um banco de madeira em um parque. Ao fundo, há árvores verdes e um céu azul claro. A pessoa veste uma camiseta azul e jeans. A iluminação natural sugere que a foto foi tirada durante o dia.";
+      const requestBody = {
+        contents: [{
+          parts: [
+            {
+              text: "Analise esta imagem e forneça uma descrição detalhada e acessível em português. Descreva o que você vê de forma clara e objetiva, incluindo pessoas, objetos, cenário, cores e atmosfera. A descrição será usada como texto alternativo para acessibilidade."
+            },
+            {
+              inline_data: {
+                mime_type: "image/jpeg", // ou "image/png" dependendo do tipo
+                data: base64Image
+              }
+            }
+          ]
+        }]
+      };
+
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody)
+      });
       
-      setDescription(sampleDescription);
+      if (!response.ok) {
+        throw new Error(`Erro na API: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      // Extrair a descrição da resposta do Gemini
+      const generatedDescription = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (!generatedDescription) {
+        throw new Error('Não foi possível gerar a descrição');
+      }
+      
+      setDescription(generatedDescription.trim());
+      
     } catch (err) {
-      console.error(err)
-      setError('Erro ao analisar a imagem. Tente novamente.');
+      console.error('Erro ao analisar imagem:', err);
+      setError('Erro ao analisar a imagem. Verifique sua conexão e tente novamente.');
     } finally {
       setIsAnalyzing(false);
     }
@@ -96,18 +118,15 @@ const useImageUpload = () => {
 
   // Função para resetar tudo
   const resetImage = () => {
-    setSelectedImage(null);
     setImagePreview(null);
     setDescription('');
     setError('');
-    setIsDragOver(false); // Importante: resetar o estado de drag
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
   };
 
   return {
-    selectedImage,
     imagePreview,
     description,
     isAnalyzing,
