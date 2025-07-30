@@ -2,8 +2,9 @@
 
 Aplicação Web que permite ao usuário enviar uma imagem e receber uma descrição automática gerada por Inteligência Artificial.
 
-🔗 **Acesse o projeto online:**  
-https://image-description-one.vercel.app/
+## Acesse a versão online hospedada na Vercel:
+
+[![Acessar App na Web](https://img.shields.io/badge/▲%20ACESSAR%20APP%20NA%20WEB-007ACC?style=for-the-badge&logo=vercel&logoColor=white)](https://image-description-one.vercel.app/)
 
 ---
 
