@@ -1,5 +1,6 @@
 # 🖼️ Image Description AI
 
+![Screenshot image description tablet](./src/assets/images/image-description_tablet.png)  
 Aplicação Web que permite ao usuário enviar uma imagem e receber uma descrição automática gerada por Inteligência Artificial.
 
 ## Acesse a versão online hospedada na Vercel:
@@ -29,7 +30,7 @@ Aplicação Web que permite ao usuário enviar uma imagem e receber uma descriç
 
 ## 🖼️ Preview
 
-![Screenshot image description](./image-description.png)  
+![Screenshot image description](./src/assets/images/image-description.png)  
 
 ---
 
