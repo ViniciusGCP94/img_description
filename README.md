@@ -4,7 +4,7 @@ Aplicação Web que permite ao usuário enviar uma imagem e receber uma descriç
 
 ## Acesse a versão online hospedada na Vercel:
 
-[![Acessar App na Web](https://img.shields.io/badge/▲%20ACESSAR%20APP%20NA%20WEB-007ACC?style=for-the-badge&logo=vercel&logoColor=white)](https://image-description-one.vercel.app/)
+[![Acessar App na Web](https://img.shields.io/badge/%20ACESSAR%20APP%20NA%20WEB-007ACC?style=for-the-badge&logo=vercel&logoColor=white)](https://image-description-one.vercel.app/)
 
 ---
 
