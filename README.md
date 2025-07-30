@@ -75,4 +75,4 @@ Abra uma issue ou envie um pull request.
 
 ## 📄 Licença
 Este projeto está sob a licença MIT.
-Veja o arquivo [LICENSE](./eslint.config.js) para mais informações.
+Veja o arquivo [LICENSE](./LICENSE) para mais informações.
