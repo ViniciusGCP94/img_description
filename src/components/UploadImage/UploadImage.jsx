@@ -47,13 +47,13 @@ const UploadImage = ({
               <div className={`transition-all duration-200 ${isDragOver ? 'scale-110' : ''}`}>
                 <Upload className={`h-12 w-12 mb-4 ${isDragOver ? 'text-blue-600' : 'text-blue-500'}`} />
               </div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDragOver ? 'text-blue-800' : 'text-gray-700'}`}>
+              <h1 className={`text-xl font-semibold mb-2 ${isDragOver ? 'text-blue-800' : 'text-gray-700'}`}>
                 {isDragOver ? 'Solte a imagem aqui!' : 'Faça upload de uma imagem'}
-              </h3>
-              <p className={`${isDragOver ? 'text-blue-600' : 'text-gray-500'}`}>
+              </h1>
+              <p className={`${isDragOver ? 'text-blue-600' : 'text-blue-500'}`}>
                 {isDragOver ? 'Solte para fazer upload' : 'Clique aqui ou arraste uma imagem para começar'}
               </p>
-              <p className="text-sm text-gray-400 mt-2">
+              <p className="text-sm font-semibold text-gray-700 mt-2">
                 Formatos suportados: JPG, PNG, GIF, WebP (máx. 10MB)
               </p>
             </label>
