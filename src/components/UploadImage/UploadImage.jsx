@@ -50,7 +50,7 @@ const UploadImage = ({
               <h1 className={`text-xl font-semibold mb-2 ${isDragOver ? 'text-blue-800' : 'text-gray-700'}`}>
                 {isDragOver ? 'Solte a imagem aqui!' : 'Faça upload de uma imagem'}
               </h1>
-              <p className={`${isDragOver ? 'text-blue-600' : 'text-blue-500'}`}>
+              <p className={`${isDragOver ? 'text-blue-600' : 'text-blue-600'}`}>
                 {isDragOver ? 'Solte para fazer upload' : 'Clique aqui ou arraste uma imagem para começar'}
               </p>
               <p className="text-sm font-semibold text-gray-700 mt-2">

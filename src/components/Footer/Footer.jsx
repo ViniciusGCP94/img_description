@@ -5,9 +5,9 @@ const Footer = () => {
     return (
         <div className="mt-8 text-center">
             <div className="bg-white rounded-xl shadow-sm p-6">
-                <h4 className="font-semibold text-gray-800 mb-3">
+                <h2 className="font-semibold text-gray-800 mb-3">
                 Por que a acessibilidade web é importante?
-                </h4>
+                </h2>
                 <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
                     <div className="flex flex-col items-center p-4">
                         <div className="bg-purple-100 p-2 rounded-full mb-2">
@@ -21,7 +21,7 @@ const Footer = () => {
                         <div className="bg-green-100 p-2 rounded-full mb-2">
                         <Check className="h-5 w-5 text-green-600" />
                         </div>
-                        <p className="font-medium mb-1">SEO Melhorado</p>
+                        <h3 className="font-medium mb-1">SEO Melhorado</h3>
                         <p>Descrições ajudam motores de busca a indexar seu conteúdo</p>
                     </div>
                     
@@ -29,7 +29,7 @@ const Footer = () => {
                         <div className="bg-blue-100 p-2 rounded-full mb-2">
                         <AlertCircle className="h-5 w-5 text-blue-600" />
                         </div>
-                        <p className="font-medium mb-1">Compliance</p>
+                        <h3 className="font-medium mb-1">Compliance</h3>
                         <p>Atende diretrizes de acessibilidade web (WCAG)</p>
                     </div>
                 </div>
