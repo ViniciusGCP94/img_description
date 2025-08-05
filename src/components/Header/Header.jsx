@@ -10,7 +10,7 @@ const Header = () => {
                 <div className="bg-blue-600 p-3 rounded-full w-15 flex items-center justify-center">
                     <Eye className="h-8 w-8 text-white" />
                 </div>
-                <h1 className="text-3xl text-black font-bold text-gray-800">
+                <h1 className="text-3xl text-black font-bold">
                     Descritor de Imagens
                 </h1>
             </div>
