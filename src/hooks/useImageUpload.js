@@ -71,7 +71,7 @@ const useImageUpload = () => {
       // Converter imagem para base64 
       const base64Image = imagePreview.split(',')[1];      
 
-      const API_KEY ='AIzaSyCDBIPEJ637Dru1e4KyMgMnyXH1etozDE0';
+      const API_KEY = import.meta.env.VITE_API_KEY;
       const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;      
     
       const requestBody = {
