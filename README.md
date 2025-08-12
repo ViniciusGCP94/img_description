@@ -20,12 +20,11 @@ Aplicação Web que permite ao usuário enviar uma imagem e receber uma descriç
 
 ## 🛠️ Tecnologias Utilizadas
 
-- HTML
-- CSS
-- JavaScript (Vanilla)
-- API Gemini Vision (Google AI)
-- Vercel (Deploy)
-
+- ⚛️ **React** - Biblioteca Javascript
+- ⚡ **Vite** - Build tool 
+- 🎨 **Tailwind CSS** - Framework CSS 
+- 🚀 **Vercel** - Deploy e hospedagem
+- 🤖 **Gemini Vision API** - Análise de imagens com IA
 ---
 
 ## 🖼️ Preview
