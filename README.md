@@ -29,7 +29,7 @@ Aplicação Web que permite ao usuário enviar uma imagem e receber uma descriç
 
 ## 🖼️ Preview
 
-![Screenshot image description](./src/assets/images/image-description.png)  
+![Screenshot image description](./src/assets/images/img-description-image.png)  
 
 ---
 
@@ -62,7 +62,8 @@ Este projeto demonstra como integrar aplicações front-end com APIs de intelig�
 ---
 
 ## 🙋‍♂️ Desenvolvedor
-[Vinícius Pereira (Vinnie)](https://github.com/ViniciusGCP94)
+[Vinícius Pereira (Github)](https://github.com/ViniciusGCP94)
+[Vinícius Pereira (LinkedIn)](https://www.linkedin.com/in/vinicius-gcp/)
 
 Desenvolvedor Front-End em transição de carreira.
 
